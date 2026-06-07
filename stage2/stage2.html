@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Этап 2: Тасуем бананы | Не грузи енота</title>
+    <link rel="stylesheet" href="stage2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="gradient-bg"></div>
+
+    <div class="game-container">
+        <div class="floating-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+
+        <!-- Шапка -->
+        <div class="game-header glass-effect">
+            <div class="raccoon-info">
+                <div class="raccoon-avatar neon-glow">
+                    <div class="avatar-pulse"></div>
+                    <span>🦝</span>
+                </div>
+                <div class="raccoon-speech" id="raccoonSpeech">
+                    <span class="typing-cursor"></span>
+                    Помоги навести порядок в банановых данных!
+                </div>
+            </div>
+            <div class="progress-stats">
+                <div class="score">
+                    <span class="score-icon">🍌</span>
+                    <span id="bananaScore">0</span>
+                    <span class="score-sep">/</span>
+                    <span id="totalBananas">500</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-glow"></div>
+                    </div>
+                </div>
+                <div class="tasks-completed">
+                    <span class="tasks-icon">📋</span>
+                    <span id="completedCount">0</span>
+                    <span>/ 5 заданий</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладки -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="game">
+                <span class="tab-icon">🔨</span>
+                <span>Конструктор запросов</span>
+            </button>
+            <button class="tab-btn" data-tab="theory">
+                <span class="tab-icon">📚</span>
+                <span>Теория</span>
+            </button>
+        </div>
+
+        <!-- Модальное окно-инструкция -->
+        <div id="instructionModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-close" onclick="closeInstruction()">✖</div>
+                <div class="modal-icon">🚀</div>
+                <h2>Как работать с запросами?</h2>
+                <div class="instruction-steps">
+                    <div class="step"><span class="step-num">1</span><span>Выбери задание (1-5)</span><div class="step-arrow">→</div></div>
+                    <div class="step"><span class="step-num">2</span><span>Заполни поля как в конструкторе Access</span><div class="step-arrow">→</div></div>
+                    <div class="step"><span class="step-num">3</span><span>Нажми «Выполнить запрос»</span><div class="step-arrow">→</div></div>
+                    <div class="step"><span class="step-num">4</span><span>Посмотри результат</span><div class="step-arrow">→</div></div>
+                    <div class="step"><span class="step-num">5</span><span>Используй подсказки, если нужно</span></div>
+                </div>
+                <button class="modal-btn" onclick="closeInstruction()">
+                    <span>Начать</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Вкладка конструктора -->
+        <div id="gameTab" class="tab-content active">
+            <div class="task-selector">
+                <button class="task-btn" data-task="1">
+                    <span class="task-num">01</span>
+                    <span class="task-name">Сортировка</span>
+                    <span class="task-desc">одно поле</span>
+                </button>
+                <button class="task-btn" data-task="2">
+                    <span class="task-num">02</span>
+                    <span class="task-name">Сортировка</span>
+                    <span class="task-desc">многоуровневая</span>
+                </button>
+                <button class="task-btn" data-task="3">
+                    <span class="task-num">03</span>
+                    <span class="task-name">Запрос</span>
+                    <span class="task-desc">с условием</span>
+                </button>
+                <button class="task-btn" data-task="4">
+                    <span class="task-num">04</span>
+                    <span class="task-name">Группировка</span>
+                    <span class="task-desc">Count</span>
+                </button>
+                <button class="task-btn" data-task="5">
+                    <span class="task-num">05</span>
+                    <span class="task-name">Вычисления</span>
+                    <span class="task-desc">Sum</span>
+                </button>
+            </div>
+
+            <div class="task-description glass-effect">
+                <div class="task-header">
+                    <div class="task-badge">📌 ЗАДАНИЕ <span id="taskNumber">1</span></div>
+                    <div class="task-status" id="taskStatus"></div>
+                </div>
+                <p id="taskDescription">Отсортируй бананы по спелости от самых спелых к зелёным (по убыванию).</p>
+            </div>
+
+            <div class="data-table-container glass-effect">
+                <div class="section-header">
+                    <span class="section-icon">📊</span>
+                    <h3>Исходная таблица «Бананы»</h3>
+                    <span class="section-badge">8 записей</span>
+                </div>
+                <div class="table-wrapper">
+                    <table class="data-table" id="sourceTable">
+                        <thead>
+                            <tr><th>ID</th><th>Сорт</th><th>Цвет</th><th>Спелость (%)</th><th>Вес (г)</th><th>Собрано</th></tr>
+                        </thead>
+                        <tbody id="sourceTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="query-builder glass-effect">
+                <div class="query-builder-header">
+                    <div class="header-left">
+                        <span class="header-icon">🔨</span>
+                        <span>Конструктор запросов</span>
+                    </div>
+                    <button class="btn-reset" id="resetBtn">
+                        <span>🗑️</span>
+                        <span>Сбросить</span>
+                    </button>
+                </div>
+                <div class="query-fields" id="queryRows"></div>
+                <div class="query-actions">
+                    <button class="btn-execute" id="executeBtn">
+                        <span class="btn-icon">▶</span>
+                        <span>Выполнить запрос</span>
+                    </button>
+                    <button class="btn-hint" id="hintBtn">
+                        <span class="btn-icon">💡</span>
+                        <span>Подсказка</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="result-container glass-effect">
+                <div class="section-header">
+                    <span class="section-icon">📈</span>
+                    <h3>Результат запроса</h3>
+                </div>
+                <div class="table-wrapper">
+                    <table class="result-table" id="resultTable">
+                        <thead id="resultHeader"></thead>
+                        <tbody id="resultBody"></tbody>
+                    </table>
+                </div>
+                <div class="chart-container" id="chartContainer" style="display: none;">
+                    <canvas id="resultChart"></canvas>
+                </div>
+                <div class="query-message" id="queryMessage"></div>
+            </div>
+        </div>
+
+        <!-- Вкладка теории -->
+        <div id="theoryTab" class="tab-content">
+            <div class="theory-container glass-effect">
+                <h2>📚 Как работают запросы в Access?</h2>
+                <div class="theory-grid">
+                    <div class="theory-card">
+                        <div class="card-header">
+                            <div class="card-icon">🔍</div>
+                            <h3>Сортировка (ORDER BY)</h3>
+                        </div>
+                        <p>Сортировка упорядочивает записи по одному или нескольким полям.</p>
+                        <div class="code-example">
+                            <code>▲ По возрастанию (А-Я, 1-9)</code>
+                            <code>▼ По убыванию (Я-А, 9-1)</code>
+                        </div>
+                    </div>
+                    <div class="theory-card">
+                        <div class="card-header">
+                            <div class="card-icon">🎯</div>
+                            <h3>Условия отбора (WHERE)</h3>
+                        </div>
+                        <p>Фильтруют записи по заданным критериям.</p>
+                        <div class="code-example">
+                            <code>>80 — больше 80</code>
+                            <code>"Жёлтый" — точное совпадение</code>
+                        </div>
+                    </div>
+                    <div class="theory-card">
+                        <div class="card-header">
+                            <div class="card-icon">📊</div>
+                            <h3>Группировка (GROUP BY)</h3>
+                        </div>
+                        <p>Объединяет записи с одинаковыми значениями.</p>
+                        <div class="code-example">
+                            <code>Группировка — объединяет одинаковые</code>
+                            <code>Count, Sum, Avg — функции итогов</code>
+                        </div>
+                    </div>
+                    <div class="theory-card">
+                        <div class="card-header">
+                            <div class="card-icon">🧮</div>
+                            <h3>Вычисляемые поля</h3>
+                        </div>
+                        <p>Создают новые поля на основе существующих.</p>
+                        <div class="code-example">
+                            <code>Вес_кг: [Вес]/1000</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="theory-tip">
+                    <span class="tip-icon">💡</span>
+                    <span>Совет: В Access сначала выбери таблицу, потом перетащи нужные поля в бланк запроса!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно завершения -->
+        <div id="completionModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-close" onclick="closeCompletion()">✖</div>
+                <div class="modal-icon">🏆</div>
+                <h2>Все задания выполнены!</h2>
+                <p>Ты освоил сортировку и запросы</p>
+                <div class="completion-stats">
+                    <div class="stat">
+                        <span class="stat-value" id="finalBananas">500</span>
+                        <span class="stat-label">бананов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">5/5</span>
+                        <span class="stat-label">заданий</span>
+                    </div>
+                </div>
+                <button class="modal-btn" onclick="completeStage()">
+                    <span>Продолжить квест</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="stage2.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Этап 1: Архитектор трёх норок | Не грузи енота</title>
+    <link rel="stylesheet" href="stage1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Шапка -->
+        <div class="game-header">
+            <div class="raccoon-info">
+                <div class="raccoon-avatar">🦝</div>
+                <div class="raccoon-speech" id="raccoonSpeech">
+                    Построим три норки для разных данных!
+                </div>
+            </div>
+            <div class="progress-stats">
+                <div class="score">🍌 <span id="bananaScore">0</span> / <span id="totalBananas">300</span></div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+                </div>
+                <div class="tables-completed">📋 Выполнено: <span id="completedCount">0</span> / 3</div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКИ (ГЛАВНЫЙ НАВИГАТОР) -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('constructor')">🔨 Конструктор таблиц</button>
+            <button class="tab-btn" onclick="switchTab('theory')">📚 Теория проектирования</button>
+        </div>
+
+        <!-- Модальное окно-инструкция -->
+        <div id="instructionModal" class="modal instruction-modal">
+            <div class="modal-content wood-frame">
+                <div class="modal-icon">🦝📐</div>
+                <h2>Как стать архитектором данных?</h2>
+                <div class="instruction-steps">
+                    <div class="step">
+                        <span class="step-num">1</span>
+                        <span>Выбери задание (Студенты, Книги или Товары)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">2</span>
+                        <span>Перетащи из библиотеки поля, которые подходят для этой таблицы</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">3</span>
+                        <span>Для каждого поля выбери правильный тип данных</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">4</span>
+                        <span>Отметь ключевое поле (обычно это ID) — 🔑</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">5</span>
+                        <span>Нажми «Проверить таблицу» и исправь ошибки, если они есть</span>
+                    </div>
+                </div>
+                <button class="modal-btn" onclick="closeInstruction()">Начать строительство →</button>
+            </div>
+        </div>
+
+        <!-- ==================== ВКЛАДКА КОНСТРУКТОР ==================== -->
+        <div id="constructorTab" class="tab-content active">
+            <!-- Выбор задания -->
+            <div class="task-selector">
+                <button class="task-btn" data-task="students">🧑‍🎓 Студенты</button>
+                <button class="task-btn" data-task="books">📚 Книги</button>
+                <button class="task-btn" data-task="products">🛒 Товары</button>
+            </div>
+
+            <!-- Описание текущего задания -->
+            <div class="task-description">
+                <h3>📋 Что нужно хранить?</h3>
+                <p id="taskDescriptionText">Информацию о студентах: ФИО, дата рождения, класс, средний балл, контакты.</p>
+                <div class="table-name-fixed">
+                    📌 Название таблицы: <strong id="fixedTableName">Студенты</strong>
+                </div>
+            </div>
+
+            <!-- Конструктор -->
+            <div class="builder-layout">
+                <!-- Левая панель - библиотека полей -->
+                <div class="library-panel">
+                    <div class="panel-header">
+                        <span class="panel-icon">📚</span>
+                        <h3>Библиотека полей</h3>
+                        <span class="panel-tip">(перетащи нужные)</span>
+                    </div>
+                    <div class="library-grid" id="libraryGrid">
+                        <!-- Поля будут загружены из JS -->
+                    </div>
+                </div>
+
+                <!-- Правая панель - конструктор -->
+                <div class="builder-panel">
+                    <div class="panel-header">
+                        <span class="panel-icon">🔨</span>
+                        <h3>Моя таблица</h3>
+                        <span class="panel-tip" id="currentTaskName">Студенты</span>
+                    </div>
+
+                    <!-- Конструктор полей -->
+                    <div class="fields-constructor">
+                        <div class="fields-header">
+                            <span>🧱 Поле</span>
+                            <span>📊 Тип данных</span>
+                            <span>🔑 Ключ</span>
+                            <span></span>
+                        </div>
+                        <div id="tableFieldsList" class="fields-list-container">
+                            <div class="empty-builder">
+                                <span class="empty-icon">🏗️</span>
+                                <p>Перетащи сюда поля из библиотеки</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-check" id="checkBtn">🔍 Проверить таблицу</button>
+                        <button class="btn-clear" id="clearBtn">🗑️ Очистить всё</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== ВКЛАДКА ТЕОРИЯ ==================== -->
+        <div id="theoryTab" class="tab-content">
+            <div class="theory-container wood-panel">
+                <h2>📚 Архитектура баз данных</h2>
+
+                <div class="theory-card">
+                    <div class="theory-icon">🏠</div>
+                    <div class="theory-content">
+                        <h3>Что такое таблица?</h3>
+                        <p>Таблица в базе данных — как комната в норке енота. В одной комнате хранятся только однотипные вещи. Нельзя смешивать студентов с книгами или товарами!</p>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <div class="theory-icon">📦</div>
+                    <div class="theory-content">
+                        <h3>Типы данных (какие полки бывают)</h3>
+                        <div class="types-grid">
+                            <div class="type-item">
+                                <span class="type-emoji">🔑</span>
+                                <span class="type-name">Счетчик</span>
+                                <span class="type-desc">Автоматически нумерует (1,2,3...) — для ID</span>
+                            </div>
+                            <div class="type-item">
+                                <span class="type-emoji">📝</span>
+                                <span class="type-name">Текст</span>
+                                <span class="type-desc">Для имён, фамилий, адресов, названий</span>
+                            </div>
+                            <div class="type-item">
+                                <span class="type-emoji">🔢</span>
+                                <span class="type-name">Число</span>
+                                <span class="type-desc">Для баллов, возраста, цен, количества</span>
+                            </div>
+                            <div class="type-item">
+                                <span class="type-emoji">📅</span>
+                                <span class="type-name">Дата/время</span>
+                                <span class="type-desc">Для дат рождения, событий, года издания</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <div class="theory-icon">🔑</div>
+                    <div class="theory-content">
+                        <h3>Первичный ключ — главная комната</h3>
+                        <p>У каждой записи должен быть уникальный номер. Обычно это поле ID с типом "Счетчик". Он помогает не перепутать студентов с одинаковыми именами.</p>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <div class="theory-icon">🚫</div>
+                    <div class="theory-content">
+                        <h3>Нормализация — не бери лишнее!</h3>
+                        <p>В таблице должны быть только поля, относящиеся к её теме.</p>
+                        <div class="theory-example">
+                            <span class="example-good">✅ Для таблицы "Студенты" подходят: Фамилия, Имя, Класс, Средний балл</span>
+                            <span class="example-bad">❌ Не подходят: Название книги, Цена товара, Автор</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-tip">
+                    💡 <strong>Совет архитектора:</strong> Сначала продумай, какие поля нужны для твоей таблицы. Лишние поля только запутают данные!
+                </div>
+            </div>
+        </div>
+
+        <!-- Панель с результатами проверки -->
+        <div id="resultPanel" class="result-panel" style="display: none;">
+            <div class="result-content" id="resultContent"></div>
+            <button class="result-close" onclick="closeResult()">✖</button>
+        </div>
+
+        <!-- Модальное окно завершения -->
+        <div class="modal" id="completionModal" style="display: none;">
+            <div class="modal-content wood-frame">
+                <div class="modal-icon">🏆</div>
+                <h2>Все три норки построены!</h2>
+                <p>Ты успешно создал три таблицы и получил <strong id="finalBananas">300</strong> бананов!</p>
+                <button class="modal-btn" onclick="completeStage()">Продолжить квест →</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" style="display: none;"></div>
+
+    <script src="stage1.js"></script>
+</body>
+</html>

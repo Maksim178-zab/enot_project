@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f0ece6 0%, #e0d8d0 100%);
+    min-height: 100vh;
+}
+
+.page-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 40px;
+}
+
+/* ===== ШАПКА ===== */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.back-link {
+    background: rgba(255,255,255,0.8);
+    padding: 10px 20px;
+    border-radius: 40px;
+    text-decoration: none;
+    color: #2c241e;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.back-link:hover {
+    background: white;
+    transform: translateX(-5px);
+}
+
+.stage-badge {
+    background: #2a5a3a;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.content-wrapper {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+/* Левая колонка */
+.info-panel {
+    flex: 1;
+    min-width: 320px;
+}
+
+.stage-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+}
+
+.info-panel h1 {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    color: #2c241e;
+}
+
+.stage-subtitle {
+    color: #5a6e4a;
+    margin-bottom: 32px;
+    font-size: 1rem;
+}
+
+/* Карточки */
+.tasks-card, .skills-card, .action-panel > div {
+    background: white;
+    border-radius: 28px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #d0e0c8;
+}
+
+.tasks-card h3, .skills-card h3, .result-card h3, .tips-card h3, .example-card h3 {
+    margin-bottom: 16px;
+    color: #2a5a3a;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+}
+
+.task-check {
+    color: #2a5a3a;
+    font-size: 1.2rem;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-item {
+    background: #e8f0e4;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    color: #2a5a3a;
+}
+
+/* Правая колонка */
+.action-panel {
+    flex: 1;
+    min-width: 360px;
+}
+
+.trainer-card {
+    text-align: center;
+    background: linear-gradient(135deg, #e8f0e4, #d8e8d0);
+    border: 2px solid #2a5a3a;
+}
+
+.trainer-icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.trainer-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: #2c241e;
+}
+
+.trainer-card p {
+    color: #4a6e3a;
+    margin-bottom: 16px;
+}
+
+.trainer-info {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.info-tag {
+    background: white;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #2a5a3a;
+}
+
+.btn-trainer {
+    display: inline-block;
+    background: #2a5a3a;
+    color: white;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: 0.2s;
+    margin-bottom: 16px;
+}
+
+.btn-trainer:hover {
+    background: #1a4a2a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(42,90,58,0.3);
+}
+
+.trainer-note {
+    font-size: 0.75rem;
+    color: #6a8e5a;
+}
+
+/* Пример таблицы */
+.example-card {
+    background: #e8f0e4;
+}
+
+.table-example {
+    width: 100%;
+    font-size: 0.85rem;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.example-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    padding: 10px 12px;
+    border-bottom: 1px solid #c0d8b0;
+}
+
+.example-row.header {
+    background: #2a5a3a;
+    color: white;
+    font-weight: 600;
+}
+
+.example-row:last-child {
+    border-bottom: none;
+}
+
+.result-card ul, .tips-card ul {
+    padding-left: 20px;
+    color: #4a5a3a;
+    line-height: 1.7;
+}
+
+.btn-download {
+    background: #4a6f5e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 16px;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.btn-download:hover {
+    background: #2a5a3a;
+}
+
+/* Футер */
+.page-footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #d0c8b8;
+    text-align: center;
+    color: #8a7a6a;
+    font-size: 0.8rem;
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+    .page-container {
+        padding: 20px;
+    }
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .page-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}

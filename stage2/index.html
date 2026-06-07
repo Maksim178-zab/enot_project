@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Этап 2: Тасуем бананы | Не грузи енота</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Шапка -->
+        <div class="page-header">
+            <a href="../index.html" class="back-link">← На главную</a>
+            <div class="stage-badge">ЭТАП 2</div>
+        </div>
+
+        <!-- Основной контент -->
+        <div class="content-wrapper">
+            <!-- Левая колонка - информация -->
+            <div class="info-panel">
+                <div class="stage-icon">🔍</div>
+                <h1>Тасуем бананы</h1>
+                <p class="stage-subtitle">Сортировка и запросы в MS Access</p>
+
+                <div class="tasks-card">
+                    <h3>📋 ЗАДАНИЯ ЭТАПА</h3>
+                    <div class="task-list">
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Выполнить сортировку по одному полю</span>
+                        </div>
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Выполнить многоуровневую сортировку</span>
+                        </div>
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Создать запрос на выборку с условием</span>
+                        </div>
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Создать запрос с группировкой</span>
+                        </div>
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Создать запрос с вычисляемым полем</span>
+                        </div>
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Создать форму для ввода данных (по желанию)</span>
+                        </div>
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Создать отчёт (по желанию)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-card">
+                    <h3>📚 ЧЕМУ ВЫ НАУЧИТЕСЬ</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">✓ Сортировать данные по одному полю</div>
+                        <div class="skill-item">✓ Сортировать по нескольким полям</div>
+                        <div class="skill-item">✓ Создавать запросы с условиями</div>
+                        <div class="skill-item">✓ Группировать данные (Count, Sum, Avg)</div>
+                        <div class="skill-item">✓ Создавать вычисляемые поля</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая колонка - действия -->
+            <div class="action-panel">
+                <div class="trainer-card">
+                    <div class="trainer-icon">🎮</div>
+                    <h2>Тренажёр</h2>
+                    <p>Потренируйся делать запросы и сортировки на данных о бананах!</p>
+                    <div class="trainer-info">
+                        <span class="info-tag">📊 5 заданий</span>
+                        <span class="info-tag">🍌 до 500 бананов</span>
+                        <span class="info-tag">⏱️ 15–20 минут</span>
+                    </div>
+                    <a href="stage2.html" class="btn-trainer">▶ ЗАПУСТИТЬ ТРЕНАЖЁР</a>
+                    <p class="trainer-note">После тренажёра вы получите +500 бананов на главный счёт команды</p>
+                </div>
+
+                <div class="example-card">
+                    <h3>🔨 КАК СОЗДАТЬ ЗАПРОС В КОНСТРУКТОРЕ</h3>
+                    <div class="access-example">
+                        <div class="example-step">
+                            <div class="step-icon">1</div>
+                            <div class="step-content">
+                                <strong>Сортировка по одному полю</strong>
+                                <div class="step-desc">В режиме таблицы → нажать на заголовок поля → выбрать «Сортировка по возрастанию/убыванию»</div>
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='40' viewBox='0 0 200 40'%3E%3Crect width='200' height='40' fill='%23f0e8ff' rx='8'/%3E%3Ctext x='10' y='25' font-size='12' fill='%236450ff'%3E▼ Сортировка по убыванию%3C/text%3E%3C/svg%3E" alt="пример сортировки" style="margin-top: 8px;">
+                            </div>
+                        </div>
+                        <div class="example-step">
+                            <div class="step-icon">2</div>
+                            <div class="step-content">
+                                <strong>Многоуровневая сортировка</strong>
+                                <div class="step-desc">Данные → Сортировка → добавить уровень → выбрать поля и порядок</div>
+                            </div>
+                        </div>
+                        <div class="example-step">
+                            <div class="step-icon">3</div>
+                            <div class="step-content">
+                                <strong>Запрос с условием</strong>
+                                <div class="step-desc">Создание → Конструктор запросов → добавить таблицу → в строке «Условие отбора» написать: "Жёлтый" или >80</div>
+                            </div>
+                        </div>
+                        <div class="example-step">
+                            <div class="step-icon">4</div>
+                            <div class="step-content">
+                                <strong>Группировка</strong>
+                                <div class="step-desc">Конструктор запросов → кнопка «Итоги» (∑) → в строке «Группировка» выбрать нужную функцию (Count, Sum, Avg)</div>
+                            </div>
+                        </div>
+                        <div class="example-step">
+                            <div class="step-icon">5</div>
+                            <div class="step-content">
+                                <strong>Вычисляемое поле</strong>
+                                <div class="step-desc">В пустой ячейке «Поле» написать: Вес_кг: [Вес]/1000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h3>📄 КАК ОФОРМИТЬ РЕЗУЛЬТАТ</h3>
+                    <p>После выполнения заданий этапа вам нужно предоставить:</p>
+                    <ul>
+                        <li>Файл базы данных со всеми запросами</li>
+                        <li>Скриншоты каждого запроса в режиме конструктора</li>
+                        <li>Скриншоты результатов выполнения</li>
+                        <li>Краткое описание каждого запроса в Word</li>
+                    </ul>
+                    <button class="btn-download" id="downloadTemplateBtn">📥 Скачать шаблон отчёта</button>
+                </div>
+
+                <div class="tips-card">
+                    <h3>💡 СОВЕТЫ</h3>
+                    <ul>
+                        <li>В Access удобно создавать запросы через конструктор</li>
+                        <li>После создания запроса сохрани его (Ctrl+S)</li>
+                        <li>Для группировки нажми кнопку «Итоги» (∑)</li>
+                        <li>Вычисляемые поля создаются в строке «Поле»: Вес_кг: [Вес]/1000</li>
+                        <li>Проверь запросы на разных данных</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Футер -->
+        <div class="page-footer">
+            <p>🦝 «Не грузи енота» — проект по сортировке данных</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

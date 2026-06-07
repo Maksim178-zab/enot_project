@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Этап 1: Строим норку данных | Не грузи енота</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Шапка -->
+        <div class="page-header">
+            <a href="../index.html" class="back-link">← На главную</a>
+            <div class="stage-badge">ЭТАП 1</div>
+        </div>
+
+        <!-- Основной контент -->
+        <div class="content-wrapper">
+            <!-- Левая колонка - информация -->
+            <div class="info-panel">
+                <div class="stage-icon">🗄️</div>
+                <h1>Строим норку данных</h1>
+                <p class="stage-subtitle">Создание базы данных в MS Access</p>
+
+                <div class="tasks-card">
+                    <h3>📋 ЗАДАНИЯ ЭТАПА</h3>
+                    <div class="task-list">
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Открыть MS Access, создать базу данных</span>
+                        </div>
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Спроектировать структуру таблицы</span>
+                        </div>
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Создать таблицу в режиме конструктора</span>
+                        </div>
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Заполнить таблицу данными (15–20 записей)</span>
+                        </div>
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Установить ключевое поле</span>
+                        </div>
+                        <div class="task-item">
+                            <span class="task-check">□</span>
+                            <span>Сохранить файл базы данных (.accdb)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-card">
+                    <h3>📚 ЧЕМУ ВЫ НАУЧИТЕСЬ</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">✓ Понимать структуру таблиц БД</div>
+                        <div class="skill-item">✓ Выбирать правильные типы данных</div>
+                        <div class="skill-item">✓ Устанавливать первичный ключ</div>
+                        <div class="skill-item">✓ Заполнять таблицу данными</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая колонка - действия -->
+            <div class="action-panel">
+                <div class="trainer-card">
+                    <div class="trainer-icon">🎮</div>
+                    <h2>Тренажёр</h2>
+                    <p>Собери таблицу из конструктора! Перетаскивай поля и выбирай типы данных.</p>
+                    <div class="trainer-info">
+                        <span class="info-tag">🏗️ 3 таблицы</span>
+                        <span class="info-tag">🍌 до 200 бананов</span>
+                        <span class="info-tag">⏱️ 10–15 минут</span>
+                    </div>
+                    <a href="stage1.html" class="btn-trainer">▶ ЗАПУСТИТЬ ТРЕНАЖЁР</a>
+                    <p class="trainer-note">После тренажёра вы получите +200 бананов на главный счёт команды</p>
+                </div>
+
+                <div class="example-card">
+                    <h3>🏗️ ПРИМЕР СТРУКТУРЫ ТАБЛИЦЫ</h3>
+                    <div class="table-example">
+                        <div class="example-row header">
+                            <span>Имя поля</span>
+                            <span>Тип данных</span>
+                            <span>Пояснение</span>
+                        </div>
+                        <div class="example-row">
+                            <span>ID</span>
+                            <span>Счётчик</span>
+                            <span>Первичный ключ</span>
+                        </div>
+                        <div class="example-row">
+                            <span>Фамилия</span>
+                            <span>Текст</span>
+                            <span></span>
+                        </div>
+                        <div class="example-row">
+                            <span>Имя</span>
+                            <span>Текст</span>
+                            <span></span>
+                        </div>
+                        <div class="example-row">
+                            <span>Дата рождения</span>
+                            <span>Дата/время</span>
+                            <span></span>
+                        </div>
+                        <div class="example-row">
+                            <span>Класс</span>
+                            <span>Текст</span>
+                            <span></span>
+                        </div>
+                        <div class="example-row">
+                            <span>Средний балл</span>
+                            <span>Числовой</span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h3>📄 КАК ОФОРМИТЬ РЕЗУЛЬТАТ</h3>
+                    <p>После выполнения заданий этапа вам нужно предоставить:</p>
+                    <ul>
+                        <li>Файл базы данных MS Access (.accdb)</li>
+                        <li>Скриншот таблицы в режиме конструктора</li>
+                        <li>Скриншот таблицы с данными</li>
+                        <li>Краткое описание структуры в Word</li>
+                    </ul>
+                    <button class="btn-download" id="downloadTemplateBtn">📥 Скачать шаблон отчёта</button>
+                </div>
+
+                <div class="tips-card">
+                    <h3>💡 СОВЕТЫ</h3>
+                    <ul>
+                        <li>Сначала спроектируйте таблицу на бумаге</li>
+                        <li>Для ID всегда выбирайте тип «Счётчик»</li>
+                        <li>Имя файла БД — без пробелов и специальных символов</li>
+                        <li>Сохраняйте БД после каждого изменения</li>
+                        <li>Проверьте, что все поля имеют правильный тип данных</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Футер -->
+        <div class="page-footer">
+            <p>🦝 «Не грузи енота» — проект по сортировке данных</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

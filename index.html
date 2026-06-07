@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Не грузи енота | Игровой квест по сортировке данных</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-wrapper">
+        <!-- Боковая панель -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">🦝</div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active" data-page="main">🏠 Главная</a>
+                <a href="#" class="nav-link" data-page="game">🎮 Квест-карта</a>
+                <a href="#" class="nav-link" data-page="teams">👥 Команды</a>
+                <a href="#" class="nav-link" data-page="leaderboard">🏆 Таблица продвижения</a>
+
+                    <!-- НОВЫЙ РАЗДЕЛ: ССЫЛКИ НА ЭТАПЫ -->
+                <div class="nav-divider">🎯 ЭТАПЫ КВЕСТА</div>
+                <a href="stage0/index.html" class="nav-link external" target="_blank">🧹 Этап 0: Очистить данные</a>
+                <a href="stage1/index.html" class="nav-link external" target="_blank">🗄️ Этап 1: Создать таблицу</a>
+                <a href="stage2/index.html" class="nav-link external" target="_blank">🔍 Этап 2: Запросы и сортировка</a>
+                <a href="stage3/index.html" class="nav-link external" target="_blank">🎓 Этап 3: Защита проекта</a>
+
+                <a href="#" class="nav-link" data-page="faq">❓ FAQ</a>
+                <a href="#" class="nav-link" data-page="docs">📘 Материалы для квеста</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="raccoon-tip">«Сортируй данные — получай бананы!»</div>
+            </div>
+        </aside>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <!-- Главная -->
+            <div id="page-main" class="page active">
+                <section class="hero-simple">
+                    <div class="hero-left">
+                        <div class="badge-project">Игровой квест • 10 класс</div>
+                        <h1>Не грузи <span class="accent">енота</span></h1>
+                        <p class="tagline">Сортировка данных — наша забота, а не енота!</p>
+                        <div class="description-box">
+                            <p><strong>🎮 Что это за игра?</strong> Проходи этапы, выполняй задания по сортировке данных, зарабатывай 🍌 бананы и становись лучшей командой!</p>
+                            <p><strong>📦 Практический результат:</strong> Каждая команда создаёт «Инструкцию по разгрузке енота» — алгоритм и рабочий файл БД в MS Access.</p>
+                        </div>
+                        <div class="target-audience">
+                            <span class="target-badge">🎓 Для кого:</span>
+                            <span>Учащиеся 10 класса (информатика)</span>
+                        </div>
+                        <a href="#" class="btn-start" data-page="game">🚀 Начать квест →</a>
+                    </div>
+
+                    <!-- Интерактивные материалы на главной -->
+                    <div class="featured-materials">
+                        <div class="featured-card" onclick="window.open('https://maksim178-zab.github.io/enot_project/pres_index.html', '_blank')">
+                            <div class="featured-icon">📊</div>
+                            <div class="featured-content">
+                                <h3>Стартовая презентация</h3>
+                                <p>Погружение в мир сортировки данных</p>
+                                <span class="featured-link">Открыть →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-right">
+                        <div class="symbolic-frame">
+                            <img src="emblema.png" alt="Эмблема проекта Не грузи енота" class="raccoon-emoji-img">
+                            <div class="symbolic-label">Енот-наставник</div>
+                            <div class="symbolic-hint">«Зарабатывай бананы!»</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Квест-карта (игровые этапы) -->
+            <div id="page-game" class="page">
+                <div class="game-header">
+                    <h2>🗺️ Квест-карта «Не грузи енота»</h2>
+                    <div class="raccoon-stats">
+                        <span class="raccoon-greeting" id="raccoonGreeting">🦝 Привет, сортировщик!</span>
+                    </div>
+                </div>
+
+                <!-- Карта-путь (горизонтальный прогресс) -->
+                <div class="quest-map">
+                    <div class="map-line"></div>
+                    <div class="map-node" data-stage="prep">
+                        <div class="node-icon">🧹</div>
+                        <div class="node-name">Очистим шёрстку</div>
+                        <div class="node-bananas">🍌 100</div>
+                        <div class="node-status" id="statusPrep">🔒 Не открыт</div>
+                    </div>
+                    <div class="map-arrow">→</div>
+                    <div class="map-node" data-stage="stage1">
+                        <div class="node-icon">🗄️</div>
+                        <div class="node-name">Строим норку данных</div>
+                        <div class="node-bananas">🍌 150</div>
+                        <div class="node-status" id="statusStage1">🔒 Не открыт</div>
+                    </div>
+                    <div class="map-arrow">→</div>
+                    <div class="map-node" data-stage="stage2">
+                        <div class="node-icon">🔍</div>
+                        <div class="node-name">Тасуем бананы</div>
+                        <div class="node-bananas">🍌 200</div>
+                        <div class="node-status" id="statusStage2">🔒 Не открыт</div>
+                    </div>
+                    <div class="map-arrow">→</div>
+                    <div class="map-node" data-stage="final">
+                        <div class="node-icon">🎓</div>
+                        <div class="node-name">Енот-выпускник</div>
+                        <div class="node-bananas">🍌 250</div>
+                        <div class="node-status" id="statusFinal">🔒 Не открыт</div>
+                    </div>
+                </div>
+
+                <!-- Текущий активный этап -->
+                <div class="active-stage-panel" id="activeStagePanel">
+                    <div class="stage-header">
+                        <h3 id="activeStageTitle">📋 Подготовительный этап</h3>
+                        <div class="stage-bananas" id="activeStageBananas">🍌 +100 бананов</div>
+                    </div>
+                    <div class="stage-description" id="activeStageDesc">Сформировать команду, выбрать тему, собрать данные.</div>
+
+                    <div class="task-checklist" id="taskChecklist">
+                        <!-- Чек-лист заданий будет подставляться из JS -->
+                    </div>
+
+                    <button class="btn-complete-stage" id="completeStageBtn">✅ Завершить этап и получить бананы</button>
+                    <div class="stage-message" id="stageMessage"></div>
+                </div>
+            </div>
+
+            <!-- Команды (для выбора текущей команды) -->
+            <div id="page-teams" class="page">
+                <div class="teams-header">
+                    <h2>👥 Команды проекта</h2>
+                    <div class="admin-bar">
+                        <button id="addTeamBtn" class="btn-add-team">➕ Добавить команду</button>
+                        <button id="selectTeamModeBtn" class="btn-select-team">🎮 Играть за команду</button>
+                        <button id="refreshTeamsBtn" class="btn-refresh">🔄 Обновить</button>
+                    </div>
+                </div>
+                <div id="teams-container" class="teams-container">
+                    <div class="loading">🦝 Загрузка команд...</div>
+                </div>
+            </div>
+
+            <!-- Таблица продвижения (лидерборд) -->
+            <div id="page-leaderboard" class="page">
+                <h2>🏆 Таблица продвижения команд</h2>
+                <div class="leaderboard-intro">
+                    <span class="leaderboard-emoji">🍌</span>
+                    <p>Команды зарабатывают бананы за прохождение этапов. Чем больше бананов — тем ближе к статусу «Главный сортировщик»!</p>
+                </div>
+                <div class="leaderboard-table-wrapper">
+                    <table class="leaderboard-table" id="leaderboardTable">
+                        <thead>
+                            <tr><th>Место</th><th>Команда</th><th>Тема</th><th>🍌 Бананы</th><th>Этап</th><th>Бейдж</th></tr>
+                        </thead>
+                        <tbody id="leaderboardBody">
+                            <tr><td colspan="6">Загрузка...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="leaderboard-tip">
+                    💡 Бананы начисляются за полное выполнение всех заданий этапа. Жми «Завершить этап»!
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div id="page-faq" class="page">
+                <h2>❓ Часто задаваемые вопросы</h2>
+                <div class="faq-list">
+                    <div class="faq-item"><div class="faq-question">Как заработать бананы?</div><div class="faq-answer">Выполни все задания чек-листа на этапе и нажми «Завершить этап».</div></div>
+                    <div class="faq-item"><div class="faq-question">Можно ли перепройти этап?</div><div class="faq-answer">Да, но бананы начисляются только один раз за этап.</div></div>
+                    <div class="faq-item"><div class="faq-question">Что дают бананы?</div><div class="faq-answer">Показывают твой прогресс в таблице лидеров и приближают к победе!</div></div>
+                </div>
+            </div>
+
+            <!-- Материалы для квеста -->
+            <div id="page-docs" class="page">
+                <h2>📘 Материалы для квеста</h2>
+                <div class="content-card">
+                    <div class="docs-grid">
+                        <a href="https://docs.google.com/document/d/1fGOo-mxXFz7OCt254039fhXqOIrEUdISAnrvC6zfAR8/edit?usp=drive_link" target="_blank" class="doc-link">🪪 Визитка команды</a>
+                        <a href="https://maksim178-zab.github.io/enot_project/pres_index.html" target="_blank" class="doc-link">📊 Стартовая презентация</a>
+                        <a href="https://docs.google.com/document/d/1UCqn2S8MnYmdmpit8qwqk4fnbEerJHSvQ8Cd1o-Phrg/edit?usp=sharing" target="_blank" class="doc-link">📋 План проекта</a>
+                        <a href="https://docs.google.com/document/d/166XrVq4mGuKmP4Efs-TxZhsTqHOSC5C4bcJ6IBRSiyE/edit?usp=sharing" target="_blank" class="doc-link">📖 Буклет</a>
+                        <a href="https://docs.google.com/document/d/1xHVMwDj1Babse11jCHq68vRZ3GL8Rs5Y4EawSO0kTnA/edit?usp=sharing" target="_blank" class="doc-link">📝 План оценивания</a>
+                        <a href="#" class="doc-link">🗃️ Шаблон БД (.accdb)</a>
+                        <a href="#" class="doc-link">📄 Чек-лист самопроверки</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Модальное окно для выбора команды -->
+    <div id="teamSelectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>🎮 Вход в команду</h3>
+            <p>Выбери свою команду и введи пароль для входа.</p>
+
+            <div class="form-group">
+                <label>🏷️ Команда:</label>
+                <select id="teamSelectDropdown" class="team-select-dropdown">
+                    <option value="">-- Выбери команду --</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>🔐 Пароль команды:</label>
+                <input type="password" id="teamPassword" class="team-password-input" placeholder="Введите пароль">
+            </div>
+
+            <button id="confirmTeamSelectBtn" class="btn-save">✅ Войти в команду</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
