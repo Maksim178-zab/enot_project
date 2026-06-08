@@ -639,13 +639,23 @@ function switchPage(pageId) {
 // ИНИЦИАЛИЗАЦИЯ
 // =====================================================
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.nav-link').forEach(link => {
+    // ВНУТРЕННИЕ ССЫЛКИ (с data-page)
+    document.querySelectorAll('.nav-link[data-page]').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const pageName = link.getAttribute('data-page');
             if (pageName) switchPage(`page-${pageName}`);
         });
     });
+
+    // ВНЕШНИЕ ССЫЛКИ (на этапы) - НЕ БЛОКИРУЕМ
+    document.querySelectorAll('.nav-link.external').forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Ничего не делаем, ссылка работает сама
+            console.log('Переход на этап:', link.getAttribute('href'));
+        });
+    });
+
 
     document.getElementById('completeStageBtn')?.addEventListener('click', completeStage);
     document.getElementById('addTeamBtn')?.addEventListener('click', openAddModal);
