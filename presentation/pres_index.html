@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Не грузи енота | Сетевой проект по информатике</title>
+    <link rel="stylesheet" href="pres_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Шапка / навигация -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <span class="logo-icon">🦝</span>
+                <span class="logo-text">Не грузи енота</span>
+            </div>
+            <nav>
+                <a href="#about">О проекте</a>
+                <a href="#questions">Вопросы</a>
+                <a href="#plan">План</a>
+                <a href="#teams">Командам</a>
+                <a href="#evaluation">Оценивание</a>
+                <a href="#resources">Ресурсы</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Герой (главный блок) -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Сетевой учебный проект</div>
+                <h1>Не грузи енота</h1>
+                <div class="hero-slogan">Сортировка данных — наша забота, а не енота!</div>
+                <p class="hero-desc">Освоим ручную и автоматизированную сортировку в базах данных. Научимся отличать «грязные» данные от чистых. Без хаоса и паники.</p>
+                <div class="hero-meta">
+                    <span>📍 Гродно, Гродненская область</span>
+                    <span>🏫 ГрГУ им. Янки Купалы</span>
+                    <span>🎓 10 класс | 6 часов</span>
+                </div>
+                <a href="#teams" class="btn btn-primary">К участию →</a>
+            </div>
+            <div class="hero-emojy">
+                🦝📊✨
+            </div>
+        </div>
+    </section>
+
+    <!-- О проекте -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">О проекте</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Цель</h3>
+                    <p>Освоить принципы ручной и автоматизированной сортировки данных в БД, научиться отличать «грязные» данные от чистых и применять инструменты СУБД без хаотичного ручного перебора.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📦</div>
+                    <h3>Результат (на команду)</h3>
+                    <p><strong>«Инструкция по разгрузке енота»</strong> — комплект из двух материалов:</p>
+                    <ul>
+                        <li>✓ Алгоритм (чек-лист или блок-схема) из 5–7 шагов по сортировке</li>
+                        <li>✓ Рабочий файл БД (MS Access) с демонстрацией алгоритма</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧠</div>
+                    <h3>Предметная область</h3>
+                    <p>Информатика (10 класс). Тема: «Хранение и обработка информации в базах данных».</p>
+                    <p><strong>Межпредметные связи:</strong> математика (логика, сортировка), русский/белорусский язык (грамотное заполнение полей).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Вопросы, направляющие проект -->
+    <section id="questions" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Вопросы, направляющие проект</h2>
+            <div class="questions-block">
+                <div class="question-card fundamental">
+                    <span class="q-tag">Основополагающий</span>
+                    <p class="q-text">Как превратить хаотичный набор данных в упорядоченную и полезную информацию?</p>
+                </div>
+                <div class="question-grid">
+                    <div class="question-card problem">
+                        <span class="q-tag">Проблемные вопросы</span>
+                        <ul>
+                            <li>Почему нельзя доверять сортировку данных «еноту» (хаотично, вручную, без системы)?</li>
+                            <li>Как спроектировать базу данных так, чтобы сортировка и поиск были удобными?</li>
+                            <li>Какие инструменты СУБД помогают автоматизировать сортировку и обработку данных?</li>
+                        </ul>
+                    </div>
+                    <div class="question-card study">
+                        <span class="q-tag">Учебные вопросы</span>
+                        <ul>
+                            <li>Что такое БД и СУБД?</li>
+                            <li>Как создать таблицу и задать типы полей?</li>
+                            <li>Как выполнить сортировку данных в таблице?</li>
+                            <li>Что такое запрос на выборку и как его создать?</li>
+                            <li>Как создать отчёт на основе отсортированных данных?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- План проведения -->
+    <section id="plan" class="section">
+        <div class="container">
+            <h2 class="section-title">План проведения проекта</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-phase">Подготовительный этап</div>
+                    <div class="timeline-time">1 час</div>
+                    <ul>
+                        <li>Регистрация команд, выбор названия</li>
+                        <li>Знакомство с правилами, девизом, символикой</li>
+                        <li>Просмотр вводной презентации о «грязных данных»</li>
+                        <li>Распределение ролей в команде (аналитик, проектировщик БД, тестировщик, оформитель)</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Основной этап</div>
+                    <div class="timeline-time">4 часа</div>
+                    <ul>
+                        <li>Проектирование таблицы, типы данных, ключевое поле</li>
+                        <li>Создание таблицы в MS Access, ввод данных (в т.ч. «грязных»)</li>
+                        <li>Ручная сортировка, создание запроса с сортировкой (ORDER BY)</li>
+                        <li>Автоматизированная сортировка, создание отчёта</li>
+                        <li>Разработка чек-листа / блок-схемы (5–7 шагов)</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Самостоятельная работа</div>
+                    <div class="timeline-time">2 часа</div>
+                    <ul>
+                        <li>Сбор реальных данных, доработка БД</li>
+                        <li>Подготовка презентации / видео-демонстрации</li>
+                        <li>Финальная проверка сортировки</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Заключительный этап</div>
+                    <div class="timeline-time">1 час</div>
+                    <ul>
+                        <li>Взаимное рецензирование работ команд</li>
+                        <li>Заполнение листа самооценки</li>
+                        <li>Публичная защита лучших работ</li>
+                        <li>Рефлексия «Почему нельзя доверять сортировку еноту?»</li>
+                        <li>Награждение, публикация лучших инструкций</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Формирование групп и роли -->
+    <section id="teams" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Командам</h2>
+            <div class="two-columns">
+                <div>
+                    <h3>🎭 Роли в команде (3–4 человека)</h3>
+                    <ul class="role-list">
+                        <li><strong>Капитан</strong> — координация, финальная сдача</li>
+                        <li><strong>Аналитик</strong> — проектирование структуры БД, логика сортировки</li>
+                        <li><strong>Проектировщик БД</strong> — работа в MS Access, запросы, отчёты</li>
+                        <li><strong>Тестировщик</strong> — проверка сортировки на разных данных</li>
+                        <li><strong>Оформитель</strong> — чек-лист/блок-схема, презентация</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>📦 Продукт проекта</h3>
+                    <p><strong>«Инструкция по разгрузке енота»</strong> включает:</p>
+                    <ul>
+                        <li>Чек-лист или блок-схема (5–7 шагов по сортировке)</li>
+                        <li>Рабочий файл MS Access (успеваемость, библиотека, товары и др.)</li>
+                        <li>Краткая презентация (3–5 слайдов) для защиты</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Правила:</strong> один участник — один ПК, задания по порядку, файлы с именем «Команда_Номер этапа», енот не грузится 😉</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Оценивание -->
+    <section id="evaluation" class="section">
+        <div class="container">
+            <h2 class="section-title">Планируемые результаты и оценивание</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <h3>📌 Личностные</h3>
+                    <p>Ответственное отношение к совместной работе, способность доводить сортировку данных до логического завершения.</p>
+                </div>
+                <div class="result-card">
+                    <h3>🔗 Метапредметные</h3>
+                    <p>Умение алгоритмизировать процесс сортировки (создание чек-листа) и критически оценивать «чистоту» данных.</p>
+                </div>
+                <div class="result-card">
+                    <h3>💻 Предметные</h3>
+                    <p>Создание БД в MS Access, выполнение сортировки через таблицу и запросы, формирование отчётов.</p>
+                </div>
+            </div>
+            <div class="criteria">
+                <h3>Критерии оценки работы команды</h3>
+                <ul>
+                    <li>✅ Структура БД (типы полей, ключ) — до 3 баллов</li>
+                    <li>✅ Реализация сортировки (ручная, запрос, отчёт) — до 4 баллов</li>
+                    <li>✅ Чек-лист/блок-схема (5–7 шагов, понятность) — до 3 баллов</li>
+                    <li>✅ Презентация и защита — до 2 баллов</li>
+                </ul>
+                <p><em>Инструменты: самооценка, взаимооценка «команда — команде», оценка учителя.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ресурсы и ИТ-средства -->
+    <section id="resources" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Материалы и ресурсы</h2>
+            <div class="resources-block">
+                <div>
+                    <h3>🖥 Программное обеспечение</h3>
+                    <ul>
+                        <li><a href="https://www.microsoft.com/en-us/microsoft-365/access" target="_blank" rel="noopener noreferrer">MS Access (официальный сайт)</a></li>
+                        <li><a href="https://www.drawio.com/?ref=openhunts" target="_blank" rel="noopener noreferrer">Draw.io</a> / <a href="https://www.canva.com/ru_ru/?ysclid=mq0x22s4oc382183795" target="_blank" rel="noopener noreferrer">Canva</a> (блок-схемы)</li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">PowerPoint</a> / <a href="#" target="_blank" rel="noopener noreferrer">Google Презентации</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>📚 Информационные источники</h3>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/ru-ru/access/sort-records-in-custom-order" target="_blank" rel="noopener noreferrer">Microsoft Support: сортировка в Access</a></li>
+                        <li><a href="https://adu.by/images/2025/12/W22544307p_1765918800.pdf" target="_blank" rel="noopener noreferrer">Образовательный стандарт РБ, информатика 10 класс</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span>🦝</span> Не грузи енота
+                </div>
+                <div class="footer-info">
+                    © Купаловские проекты, 2026<br>
+                    Автор: Заборовский Максим Сергеевич, ГрГУ им. Янки Купалы, г. Гродно
+                </div>
+                <div class="footer-quote">
+                    «Енот не грузится — значит, всё сортируем сами и вовремя»
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
