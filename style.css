@@ -187,38 +187,6 @@ h1 .accent {
     font-weight: 600;
 }
 
-.hero-right {
-    flex: 0.8;
-    min-width: 240px;
-}
-
-.symbolic-frame {
-    background: #fff6ef;
-    border-radius: 48px;
-    padding: 28px;
-    text-align: center;
-    border: 2px dashed #e6b38a;
-}
-
-.raccoon-big {
-    font-size: 5rem;
-}
-
-.symbolic-label {
-    font-weight: 700;
-    color: #a3623a;
-}
-
-.symbolic-hint {
-    font-size: 0.8rem;
-    color: #b98862;
-    background: #ffe3d0;
-    padding: 6px 12px;
-    border-radius: 30px;
-    display: inline-block;
-    margin-top: 10px;
-}
-
 /* ===== КВЕСТ-КАРТА ===== */
 .game-header {
     display: flex;
